@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>be動詞 と 一般動詞 大作戦【レベルアップ版】 | 6年生 英語ワークブック</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Zen+Maru+Gothic:wght@500;700;900&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f9f5ec;
+    --paper-line:#e3dcc9;
+    --ink:#2e2a24;
+    --ink-soft:#6b6355;
+
+    --be:#2c5f8a;
+    --be-light:#e3edf5;
+    --be-dark:#1d425f;
+
+    --gen:#3e8e5a;
+    --gen-light:#e5f2e9;
+    --gen-dark:#296140;
+
+    --can:#8c5fa8;
+    --can-light:#f0e8f5;
+    --can-dark:#623f78;
+
+    --past:#c17a2e;
+    --past-light:#f8ecdb;
+    --past-dark:#8a5518;
+
+    --mix:#b1543f;
+    --mix-light:#f6e6e2;
+    --mix-dark:#7d3a2b;
+
+    --err:#7d4a99;
+    --err-light:#f0e6f5;
+    --err-dark:#552f6b;
+
+    --correct:#3e8e5a;
+    --wrong:#c0473f;
+    --shadow: 0 2px 0 rgba(46,42,36,0.08);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      linear-gradient(var(--paper-line) 1px, transparent 1px) 0 38px/100% 38px,
+      var(--paper);
+    color:var(--ink);
+    font-family:'Zen Maru Gothic','Nunito',sans-serif;
+    padding-bottom:60px;
+  }
+  .eng{font-family:'Fredoka','Nunito',sans-serif;}
+
+  body::before{
+    content:"";
+    position:fixed;
+    top:0;left:0;right:0;
+    height:6px;
+    background:linear-gradient(90deg, var(--be), var(--gen), var(--can), var(--past), var(--mix));
+    z-index:100;
+  }
+
+  /* ===== Header ===== */
+  header.top{
+    padding:34px 20px 22px;
+    text-align:center;
+    position:relative;
+  }
+  header.top h1{
+    font-family:'Fredoka',sans-serif;
+    font-size:clamp(22px,4.6vw,36px);
+    margin:0 0 6px;
+    letter-spacing:0.5px;
+  }
+  header.top h1 .be{color:var(--be);}
+  header.top h1 .gen{color:var(--gen);}
+  header.top .badge-lv{
+    display:inline-block;
+    font-size:12.5px;
+    font-weight:800;
+    background:var(--mix);
+    color:#fff;
+    padding:2px 10px;
+    border-radius:999px;
+    margin-left:6px;
+    vertical-align:middle;
+  }
+  header.top p.sub{
+    margin:0;
+    color:var(--ink-soft);
+    font-weight:700;
+    font-size:14px;
+  }
+  .stamp{
+    position:absolute;
+    top:8px;
+    right:10px;
+    background:var(--mix);
+    color:#fff;
+    font-family:'Fredoka',sans-serif;
+    font-weight:700;
+    font-size:11.5px;
+    padding:6px 12px;
+    border-radius:8px;
+    transform:rotate(6deg);
+    box-shadow:0 3px 0 rgba(0,0,0,0.15);
+    letter-spacing:0.3px;
+  }
+  @media(max-width:480px){
+    .stamp{position:static;display:inline-block;transform:rotate(-2deg);margin-bottom:10px;}
+  }
+  .scorebar{
+    max-width:340px;
+    margin:18px auto 0;
+    background:#fff;
+    border:2px solid var(--ink);
+    border-radius:999px;
+    padding:6px 18px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    font-weight:800;
+    font-size:14px;
+    box-shadow:var(--shadow);
+  }
+  #scoreFill{
+    color:var(--gen);
+  }
+
+  /* ===== Nav ===== */
+  nav.tabs{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(249,245,236,0.96);
+    backdrop-filter:blur(3px);
+    border-bottom:2px solid var(--ink);
+    padding:8px 10px;
+    display:flex;
+    gap:8px;
+    overflow-x:auto;
+    white-space:nowrap;
+    scrollbar-width:thin;
+  }
+  nav.tabs a{
+    flex:0 0 auto;
+    text-decoration:none;
+    color:var(--ink);
+    font-weight:700;
+    font-size:13px;
+    padding:7px 13px;
+    border-radius:999px;
+    border:2px solid var(--ink);
+    background:#fff;
+  }
+  nav.tabs a:hover{transform:translateY(-1px);}
+
+  main{max-width:760px;margin:0 auto;padding:0 18px;}
+
+  /* ===== Intro diagnosis card ===== */
+  .diag{
+    margin:30px 0 34px;
+    border:2px solid var(--ink);
+    border-radius:18px;
+    background:#fffdf8;
+    padding:22px 18px 26px;
+    box-shadow:var(--shadow);
+  }
+  .diag h2{
+    text-align:center;
+    font-size:19px;
+    margin:0 0 18px;
+  }
+  .diag-split{
+    display:flex;
+    position:relative;
+    gap:0;
+  }
+  .diag-col{
+    flex:1;
+    padding:16px 14px;
+    border-radius:14px;
+  }
+  .diag-col.be{background:var(--be-light);}
+  .diag-col.gen{background:var(--gen-light);}
+  .diag-col h3{
+    margin:0 0 8px;
+    font-family:'Fredoka',sans-serif;
+    font-size:20px;
+  }
+  .diag-col.be h3{color:var(--be-dark);}
+  .diag-col.gen h3{color:var(--gen-dark);}
+  .diag-col p{margin:4px 0;font-size:13.5px;line-height:1.7;}
+  .diag-col .ex{
+    font-family:'Fredoka',sans-serif;
+    font-weight:600;
+    display:inline-block;
+    background:#fff;
+    padding:1px 7px;
+    border-radius:6px;
+    margin:2px 2px 0 0;
+    font-size:13px;
+  }
+  .vs-badge{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    width:44px;height:44px;
+    border-radius:50%;
+    background:var(--ink);
+    color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fredoka',sans-serif;
+    font-weight:700;
+    font-size:14px;
+    border:3px solid var(--paper);
+    z-index:2;
+  }
+  .diag-formula{
+    margin-top:14px;
+    padding-top:12px;
+    border-top:2px dashed rgba(0,0,0,0.15);
+    font-size:12.5px;
+    color:var(--ink-soft);
+    line-height:1.8;
+  }
+  .diag-formula b{color:inherit;}
+
+  .lvup-note{
+    margin:0 0 40px;
+    border:2px dashed var(--mix);
+    border-radius:14px;
+    background:var(--mix-light);
+    padding:14px 16px;
+    font-size:13px;
+    line-height:1.8;
+    color:var(--mix-dark);
+  }
+  .lvup-note b{font-size:13.5px;}
+
+  /* ===== Chapter ===== */
+  .chapter{
+    margin:0 0 46px;
+    scroll-margin-top:64px;
+  }
+  .chapter-head{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    margin-bottom:10px;
+    flex-wrap:wrap;
+  }
+  .chapter-head .num{
+    font-family:'Fredoka',sans-serif;
+    font-size:28px;
+    font-weight:600;
+  }
+  .chapter-head h2{
+    margin:0;
+    font-size:18px;
+  }
+  .chapter-desc{
+    font-size:13.5px;
+    color:var(--ink-soft);
+    line-height:1.75;
+    margin:0 0 14px;
+  }
+  .formula-strip{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'Fredoka',sans-serif;
+    font-size:13px;
+    font-weight:600;
+    padding:8px 14px;
+    border-radius:10px;
+    margin-bottom:18px;
+    border:2px solid;
+  }
+
+  .chapter[data-color="be"] .num,.chapter[data-color="be"] h2{color:var(--be-dark);}
+  .chapter[data-color="gen"] .num,.chapter[data-color="gen"] h2{color:var(--gen-dark);}
+  .chapter[data-color="can"] .num,.chapter[data-color="can"] h2{color:var(--can-dark);}
+  .chapter[data-color="past"] .num,.chapter[data-color="past"] h2{color:var(--past-dark);}
+  .chapter[data-color="mix"] .num,.chapter[data-color="mix"] h2{color:var(--mix-dark);}
+  .chapter[data-color="err"] .num,.chapter[data-color="err"] h2{color:var(--err-dark);}
+  .chapter[data-color="be"] .formula-strip{background:var(--be-light);border-color:var(--be);color:var(--be-dark);}
+  .chapter[data-color="gen"] .formula-strip{background:var(--gen-light);border-color:var(--gen);color:var(--gen-dark);}
+  .chapter[data-color="can"] .formula-strip{background:var(--can-light);border-color:var(--can);color:var(--can-dark);}
+  .chapter[data-color="past"] .formula-strip{background:var(--past-light);border-color:var(--past);color:var(--past-dark);}
+  .chapter[data-color="mix"] .formula-strip{background:var(--mix-light);border-color:var(--mix);color:var(--mix-dark);}
+  .chapter[data-color="err"] .formula-strip{background:var(--err-light);border-color:var(--err);color:var(--err-dark);}
+
+  /* ===== Question card ===== */
+  .qcard{
+    background:#fff;
+    border:2px solid var(--ink);
+    border-radius:14px;
+    padding:16px 16px 14px;
+    margin-bottom:14px;
+    box-shadow:var(--shadow);
+  }
+  .qcard .qtop{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:8px;
+  }
+  .level{
+    font-size:11.5px;
+    font-weight:800;
+    letter-spacing:0.5px;
+    padding:2px 9px;
+    border-radius:999px;
+    color:#fff;
+  }
+  .level.lv1{background:#8fb885;}
+  .level.lv2{background:#e0a94a;}
+  .level.lv3{background:#d16a58;}
+
+  .tag{
+    font-size:11px;
+    font-weight:800;
+    padding:3px 10px;
+    border-radius:999px;
+    color:#fff;
+    letter-spacing:0.2px;
+    white-space:nowrap;
+  }
+  .tag-mix{background:var(--mix);}
+  .tag-be{background:var(--be);}
+  .tag-gen{background:var(--gen);}
+  .tag-can{background:var(--can);}
+  .tag-past{background:var(--past);}
+  .tag-err{background:var(--err);}
+
+  .new-flag{
+    display:inline-block;
+    background:var(--err);
+    color:#fff;
+    font-size:10.5px;
+    font-weight:800;
+    padding:1px 8px;
+    border-radius:999px;
+    margin-left:6px;
+    vertical-align:middle;
+  }
+  nav.tabs a.new-tab{
+    background:var(--err);
+    color:#fff;
+    border-color:var(--err);
+  }
+
+  .qnum{font-size:12px;color:var(--ink-soft);font-weight:700;}
+
+  .qprompt{
+    font-size:14.5px;
+    line-height:1.75;
+    margin:0 0 4px;
+    white-space:pre-line;
+  }
+  .qprompt .jp{font-weight:700;}
+  .qrow{
+    display:flex;
+    gap:8px;
+    margin-top:10px;
+    flex-wrap:wrap;
+  }
+  .qrow input[type=text]{
+    flex:1;
+    min-width:160px;
+    font-family:'Fredoka',sans-serif;
+    font-size:14.5px;
+    padding:9px 12px;
+    border:2px solid #cfc7b4;
+    border-radius:9px;
+    background:#fffef9;
+  }
+  .qrow input[type=text]:focus{outline:none;border-color:var(--ink);}
+  .btn{
+    font-family:'Zen Maru Gothic',sans-serif;
+    font-weight:700;
+    font-size:13.5px;
+    border:2px solid var(--ink);
+    background:#fff;
+    padding:8px 14px;
+    border-radius:9px;
+    cursor:pointer;
+    white-space:nowrap;
+  }
+  .btn:active{transform:translateY(1px);}
+  .btn.check{background:var(--ink);color:#fff;}
+  .btn.hint{background:#fff;}
+
+  .feedback{
+    margin-top:10px;
+    font-size:13.5px;
+    padding:9px 12px;
+    border-radius:9px;
+    display:none;
+    line-height:1.6;
+  }
+  .feedback.show{display:block;}
+  .feedback.correct{background:#e5f2e9;border:2px solid var(--correct);color:var(--gen-dark);}
+  .feedback.wrong{background:#fbeae8;border:2px solid var(--wrong);color:#7d2b23;}
+  .feedback .answer{font-family:'Fredoka',sans-serif;font-weight:600;}
+
+  .hintbox{
+    margin-top:8px;
+    font-size:12.5px;
+    color:var(--ink-soft);
+    background:#f6f2e8;
+    padding:7px 10px;
+    border-radius:8px;
+    display:none;
+  }
+  .hintbox.show{display:block;}
+
+  footer{
+    text-align:center;
+    color:var(--ink-soft);
+    font-size:12px;
+    margin-top:50px;
+    padding:0 20px;
+  }
+
+  @media(max-width:480px){
+    .diag-split{flex-direction:column;gap:24px;}
+    .vs-badge{top:auto;bottom:-32px;left:50%;}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="stamp">✨ LEVEL UP!</div>
+  <h1><span class="be eng">be</span>動詞 <span class="eng">vs</span> <span class="gen eng">一般</span>動詞 大作戦<span class="badge-lv">レベルアップ版</span></h1>
+  <p class="sub">場面や会話、答えの文から考えて、否定文・疑問文・can・過去形・英作文を練習しよう!</p>
+  <div class="scorebar">
+    <span>できた問題</span>
+    <span id="scoreFill">0 / 0</span>
+  </div>
+</header>
+
+<nav class="tabs">
+  <a href="#ch0">動詞さがし</a>
+  <a href="#ch1">be否定</a>
+  <a href="#ch2">be疑問</a>
+  <a href="#ch3">一般否定</a>
+  <a href="#ch4">一般疑問</a>
+  <a href="#ch5">can</a>
+  <a href="#ch6">過去形</a>
+  <a href="#ch7">英作文</a>
+  <a href="#ch8" class="new-tab">🆕 まちがい探し</a>
+</nav>
+
+<main>
+
+  <section class="diag">
+    <h2>まず、この2つのちがいをおぼえよう!</h2>
+    <div class="diag-split">
+      <div class="diag-col be">
+        <h3 class="eng">be動詞</h3>
+        <p>「〜です」「〜にいる/ある」を表す。<b>am / is / are</b> の3つだけ!</p>
+        <p>
+          <span class="ex eng">I am</span>
+          <span class="ex eng">You/We/They are</span>
+          <span class="ex eng">He/She/It is</span>
+        </p>
+        <p>例: <span class="ex eng">I am happy.</span> <span class="ex eng">She is a nurse.</span></p>
+      </div>
+      <div class="vs-badge">VS</div>
+      <div class="diag-col gen">
+        <h3 class="eng">一般動詞</h3>
+        <p>「〜する」という動きを表すことば。<b>play, like, study, go, have...</b>など、ものすごくたくさんある!</p>
+        <p>
+          <span class="ex eng">I play</span>
+          <span class="ex eng">She plays</span>
+          <span class="ex eng">They study</span>
+        </p>
+        <p>例: <span class="ex eng">I play soccer.</span> <span class="ex eng">She likes cats.</span></p>
+      </div>
+    </div>
+    <div class="diag-formula">
+      <b>否定文</b>: be動詞 → そのあとに <b>not</b> を置くだけ / 一般動詞 → 動詞の前に <b>do not (don't) / does not (doesn't)</b><br>
+      <b>疑問文</b>: be動詞 → <b>be動詞を主語の前</b>に出す / 一般動詞 → 文の頭に <b>Do / Does</b> を置く(動詞は原形にもどす)
+    </div>
+  </section>
+
+  <div class="lvup-note">
+    <b>👀 この教材の解き方について</b><br>
+    今回は「〜を否定文にしよう」のように直接は教えません。会話の場面や、答えの文だけを見せる問題が出てきます。
+    <b>be動詞か一般動詞か、肯定・否定・疑問のどれを使うか</b>は、自分で考えて判断してね。ヒントは答えそのものではなく、考えるヒントだけです。
+  </div>
+
+  <!-- Chapter 0 -->
+  <section class="chapter" id="ch0" data-color="mix">
+    <div class="chapter-head"><span class="num">0</span><h2>動詞さがしクイズ</h2></div>
+    <p class="chapter-desc">英文の中で使われている動詞を、自分で書き出してみよう。be動詞(am/is/are)なのか一般動詞(playやlikesなど)なのか、見分ける力の土台になるよ。</p>
+    <div id="ch0-list"></div>
+  </section>
+
+  <!-- Chapter 1 -->
+  <section class="chapter" id="ch1" data-color="be">
+    <div class="chapter-head"><span class="num">1</span><h2>会話で「ちがうよ」を伝えよう(be動詞)</h2></div>
+    <div class="formula-strip">S + be動詞 + <u>not</u> + ...</div>
+    <p class="chapter-desc">友達の思いこみに「ちがうよ」「そうじゃないよ」と伝えたい場面が出てきます。be動詞のどの形を使うか、主語をそのままにするか代名詞に変えるかも自分で考えよう。</p>
+    <div id="ch1-list"></div>
+  </section>
+
+  <!-- Chapter 2 -->
+  <section class="chapter" id="ch2" data-color="be">
+    <div class="chapter-head"><span class="num">2</span><h2>答えから質問をさかのぼろう(be動詞)</h2></div>
+    <div class="formula-strip">Be動詞 + S + ...?</div>
+    <p class="chapter-desc">今回は答えの文だけを見せます。この答えが返ってくるには、どんな質問をしたはずかな?主語やbe動詞の対応に注意しよう。</p>
+    <div id="ch2-list"></div>
+  </section>
+
+  <!-- Chapter 3 -->
+  <section class="chapter" id="ch3" data-color="gen">
+    <div class="chapter-head"><span class="num">3</span><h2>会話で「ちがうよ」を伝えよう(一般動詞)</h2></div>
+    <div class="formula-strip">S + do/does not + 動詞の原形</div>
+    <p class="chapter-desc">友達の思いこみを否定する場面。主語によってdo notかdoes notか、動詞の形をどう戻すかを自分で判断しよう。</p>
+    <div id="ch3-list"></div>
+  </section>
+
+  <!-- Chapter 4 -->
+  <section class="chapter" id="ch4" data-color="gen">
+    <div class="chapter-head"><span class="num">4</span><h2>答えから質問をさかのぼろう(一般動詞)</h2></div>
+    <div class="formula-strip">Do/Does + S + 動詞の原形 ...?</div>
+    <p class="chapter-desc">答えの文だけを見て、もとの質問を考えよう。答えの中の代名詞が質問では変わることもあるよ。</p>
+    <div id="ch4-list"></div>
+  </section>
+
+  <!-- Chapter 5 -->
+  <section class="chapter" id="ch5" data-color="can">
+    <div class="chapter-head"><span class="num">5</span><h2>can の文(〜できる)</h2></div>
+    <div class="formula-strip">S + can + 動詞の原形 / Can + S + 動詞の原形?</div>
+    <p class="chapter-desc">自まん・たずねる・できないことを伝える、いろいろな場面が出てきます。肯定文・否定文・疑問文のどれを使うべきかは書いてないよ。場面から自分で判断しよう。</p>
+    <div id="ch5-list"></div>
+  </section>
+
+  <!-- Chapter 6 -->
+  <section class="chapter" id="ch6" data-color="past">
+    <div class="chapter-head"><span class="num">6</span><h2>過去形の文</h2></div>
+    <div class="formula-strip">動詞の過去形(-ed / 不規則) ・ was/were ・ did not ・ Did〜?</div>
+    <p class="chapter-desc">日記の文を過去のできごととして書き直そう。be動詞と一般動詞、どちらのルールを使うかは教えません。まず動詞の種類を見分けてから過去形にしよう。</p>
+    <div id="ch6-list"></div>
+  </section>
+
+  <!-- Chapter 7 -->
+  <section class="chapter" id="ch7" data-color="mix">
+    <div class="chapter-head"><span class="num">7</span><h2>英作文まとめチャレンジ(ヒントなし)</h2></div>
+    <div class="formula-strip">これまで学んだ形を全部つかおう!</div>
+    <p class="chapter-desc">日本語を見て、英語の文を自分で書いてみよう。be動詞?一般動詞?can?過去形?どれを使うかは自分で判断。今回は文法名のヒントもありません。</p>
+    <div id="ch7-list"></div>
+  </section>
+
+  <!-- Chapter 8 (NEW) -->
+  <section class="chapter" id="ch8" data-color="err">
+    <div class="chapter-head"><span class="num">8</span><h2>まちがい探し&直し</h2><span class="new-flag">NEW</span></div>
+    <div class="formula-strip">まちがいを見つけて、正しい文に書き直そう</div>
+    <p class="chapter-desc">これまでの単元でみんなが間違えやすいポイントをあつめた「まちがい文」が出てきます。どこがおかしいかを見つけて、正しい英文に書き直そう。「作る力」だけでなく「見抜く力」もためされるよ!</p>
+    <div id="ch8-list"></div>
+  </section>
+
+</main>
+
+<footer>ぜんぶ終わったら、まちがえた問題だけもう一度やってみよう!がんばれ 💪</footer>
+
+<script>
+/* ---------- data ---------- */
+
+const ch0 = [
+  {lv:1, jp:"次の文の中の動詞を1つ書き出そう:「I am happy.」", hint:"am / is / are のどれかを探してみよう。", ans:["am"], ex:"「am」はbe動詞。「~です」を表しているね。"},
+  {lv:1, jp:"次の文の中の動詞を1つ書き出そう:「I play soccer.」", hint:"amでもisでもareでもないね。動きを表すことばを探そう。", ans:["play"], ex:"「play」は動きを表す一般動詞。"},
+  {lv:1, jp:"次の文の中の動詞を1つ書き出そう:「She is a teacher.」", hint:"be動詞の仲間を探そう。", ans:["is"], ex:"「is」はbe動詞。"},
+  {lv:1, jp:"次の文の中の動詞を1つ書き出そう:「He likes dogs.」", hint:"主語がHeのときの一般動詞の形に注目しよう。", ans:["likes"], ex:"「likes」は一般動詞(3人称単数のs)。"},
+  {lv:2, jp:"次の文の中の動詞を1つ書き出そう:「They are students.」", hint:"be動詞の仲間を探そう。", ans:["are"], ex:"「are」はbe動詞。"},
+  {lv:2, jp:"次の文の中の動詞を1つ書き出そう:「We study English.」", hint:"動きを表すことばを探そう。", ans:["study"], ex:"「study」は一般動詞。"},
+  {lv:2, jp:"次の文の中の動詞を1つ書き出そう:「It is sunny today.」", hint:"be動詞の仲間を探そう。", ans:["is"], ex:"「is」はbe動詞。"},
+  {lv:2, jp:"次の文の中の動詞を1つ書き出そう:「My father works at a hospital.」", hint:"主語が3人称単数のときの一般動詞の形に注目しよう。", ans:["works"], ex:"「works」は一般動詞(3人称単数のs)。"}
+];
+
+const ch1 = [
+  {lv:1, jp:"友達に「You are hungry, right?(おなかすいてるよね?)」と聞かれたけど、おなかいっぱいだった。「ううん、おなかすいてないよ」と英語で答えよう。", hint:"amのあとにnotを置くことを思い出そう。", ans:["No, I am not hungry.","I am not hungry.","No, I'm not hungry."], ex:"主語はI。areではなくam not を使う。amのすぐ後ろにnotを入れる。"},
+  {lv:1, jp:"友達が「You are busy today.(今日いそがしいよね)」と思っているけど、実はひまだった。「ううん、いそがしくないよ」と伝えよう。", hint:"amのあとにnotを置くことを思い出そう。", ans:["No, I am not busy today.","I am not busy today.","No, I'm not busy today.","I am not busy.","No, I am not busy."], ex:"主語はI。amのあとにnot。todayは付けても付けなくてもOK。"},
+  {lv:2, jp:"先生が「Kenta is late.(けんたは遅刻している)」と言ったけど、けんたはもう教室にいた。「けんたは遅刻していないよ」と伝えよう。", hint:"Kentaは男の子。代名詞に置きかえてもいいよ。", ans:["Kenta is not late.","He is not late.","Kenta isn't late.","He isn't late."], ex:"主語をKentaのままでも、heに置きかえてもOK。isのあとにnot。"},
+  {lv:2, jp:"「Yumi and Aoi are sisters.(ゆみとあおいは姉妹だ)」と友達が言ったけど、実は姉妹ではなく仲良しの双子の友達同士。「ふたりは姉妹じゃないよ」と伝えよう。", hint:"複数人のときの代名詞は何だったかな?", ans:["Yumi and Aoi are not sisters.","They are not sisters.","Yumi and Aoi aren't sisters.","They aren't sisters."], ex:"複数の主語はThey。areのあとにnot。"},
+  {lv:3, jp:"「It is cold today.(今日は寒い)」と友達が言ったけど、実はとても暖かい一日だった。「今日は寒くないよ」と伝えよう。", hint:"主語Itのまま考えよう。", ans:["It is not cold today.","It isn't cold today."], ex:"主語Itはそのまま、isのあとにnot。"},
+  {lv:3, jp:"「We are late.(わたしたち遅刻してる)」と友達が心配しているけど、時間はまだ余裕がある。「わたしたちは遅刻していないよ」と安心させよう。", hint:"areのあとにnotを置くだけだよ。", ans:["We are not late.","We aren't late."], ex:"主語Weのまま、areのあとにnot。"}
+];
+
+const ch2 = [
+  {lv:1, jp:"次の答えになるように、質問を英語で書こう。\n答え: Yes, I am a student.", hint:"be動詞を主語の前に出すよ。", ans:["Are you a student?"], ex:"amで答えているので、質問はAre you...?になる。"},
+  {lv:1, jp:"答え: No, he is not tired.", hint:"主語heに合うbe動詞は何かな?", ans:["Is he tired?"], ex:"heなのでIs he...?の形。"},
+  {lv:2, jp:"答え: Yes, they are happy.", hint:"複数の主語に合うbe動詞は?", ans:["Are they happy?"], ex:"theyなのでAre they...?の形。"},
+  {lv:2, jp:"答え: No, she is not your sister.", hint:"sheに合うbe動詞は?", ans:["Is she your sister?"], ex:"sheなのでIs she...?の形。"},
+  {lv:3, jp:"答え: Yes, it is my bag.\n(注意:答えの中の「my」は、質問では別の単語になるよ)", hint:"「わたしの」と答えているということは、質問では「あなたの」とたずねている。", ans:["Is it your bag?"], ex:"答えのmy bagは、質問ではyour bagになる。itはそのまま。"},
+  {lv:3, jp:"答え: No, we are not late.", hint:"weのままたずねてみよう。", ans:["Are we late?"], ex:"weのままAre we...?でたずねる。"}
+];
+
+const ch3 = [
+  {lv:1, jp:"友達が「You play tennis.(テニスするよね)」と思っているけど、実はテニスをしない。「テニスはしないよ」と伝えよう。", hint:"主語Iのときのdo/doesはどっちだったかな?", ans:["I do not play tennis.","I don't play tennis."], ex:"主語IはDo not(don't)。動詞playは原形のまま。"},
+  {lv:1, jp:"友達が「You like cats.(ねこ好きだよね)」と言ったけど、実はねこが苦手。「ねこは好きじゃないよ」と伝えよう。", hint:"主語Iのときのdo/doesはどっちだったかな?", ans:["I do not like cats.","I don't like cats."], ex:"主語Iはdo not(don't)。動詞likeは原形のまま。"},
+  {lv:2, jp:"「Emi plays the piano.(えみはピアノをひく)」と聞いたけど、実はえみはピアノをひかない。「えみはピアノをひかないよ」と伝えよう。", hint:"主語が3人称単数のときのdo/doesと、動詞の形に注意しよう。", ans:["Emi does not play the piano.","She does not play the piano.","Emi doesn't play the piano.","She doesn't play the piano."], ex:"3人称単数なのでdoes not(doesn't)。playsのsを取ってplayに戻す。"},
+  {lv:2, jp:"「He likes soccer.(彼はサッカーが好き)」と言われたけど、実は好きではない。「彼はサッカーが好きじゃないよ」と伝えよう。", hint:"主語Heのときのdo/doesと動詞の形は?", ans:["He does not like soccer.","He doesn't like soccer."], ex:"Heはdoes not(doesn't)。likesのsを取ってlikeに戻す。"},
+  {lv:3, jp:"「Yuki and Sam study English every day.(ゆきとサムは毎日英語を勉強する)」と言われたけど、実は毎日ではなく週末だけ。「ふたりは毎日は勉強しないよ」と伝えよう。", hint:"複数の主語のときのdo/doesは?", ans:["Yuki and Sam do not study English every day.","They do not study English every day.","Yuki and Sam don't study English every day.","They don't study English every day."], ex:"複数の主語(Theyと同じ扱い)はdo not(don't)。"},
+  {lv:3, jp:"「My mother cooks dinner every day.(お母さんは毎日夕食を作る)」と友達が思っているけど、実はお父さんが作る日もある。「母は毎日は作らないよ」と伝えよう。", hint:"My motherはsheと同じ扱いだよ。", ans:["My mother does not cook dinner every day.","She does not cook dinner every day.","My mother doesn't cook dinner every day.","She doesn't cook dinner every day."], ex:"My motherは3人称単数扱いなのでdoesn't cook(sを取る)。"}
+];
+
+const ch4 = [
+  {lv:1, jp:"答え: Yes, I play soccer.", hint:"主語youでたずねるときの形は?", ans:["Do you play soccer?"], ex:"Iで答えているので、質問はDo you...?になる。"},
+  {lv:1, jp:"答え: No, they do not like dogs.", hint:"主語theyでたずねるときの形は?", ans:["Do they like dogs?"], ex:"theyなのでDo they...?の形。"},
+  {lv:2, jp:"答え: Yes, she plays tennis.", hint:"3人称単数のときの疑問文は?動詞の形にも注意。", ans:["Does she play tennis?"], ex:"sheなのでDoes she...?playsは原形playに戻す。"},
+  {lv:2, jp:"答え: No, he does not have a bike.\n(hasの原形に注意)", hint:"hasの原形は何だったかな?", ans:["Does he have a bike?"], ex:"hasの原形はhave。Does he have...?の形。"},
+  {lv:3, jp:"答え: Yes, my brother studies math.\n(答えの中の「my」は質問では別の単語になるよ)", hint:"myはyourに、動詞の形にも注意しよう。", ans:["Does your brother study math?"], ex:"my brotherはyour brotherに。studiesは原形studyに戻す。"},
+  {lv:3, jp:"答え: No, we do not need help.", hint:"weのままたずねてみよう。", ans:["Do we need help?"], ex:"weのままDo we...?の形。"}
+];
+
+const ch5 = [
+  {lv:1, jp:"友達に「泳げるよ!」と自まんしよう。", hint:"「〜できる」はcan+動詞の原形。", ans:["I can swim."], ex:"can+動詞の原形で「〜できる」を表す。"},
+  {lv:1, jp:"妹が「お姉ちゃんはギターがひけるんだよ」と紹介したがっている。妹の代わりに英語で紹介してあげよう。", hint:"canのあとの動詞はいつも原形だよ。", ans:["She can play the guitar."], ex:"主語がSheでもcanのあとはplayのまま(原形)。"},
+  {lv:2, jp:"スキーができないので、「スキーはできないんだ」と伝えよう。", hint:"canの否定形はどんな形だったかな?", ans:["I cannot ski.","I can't ski."], ex:"canの否定はcannot/can't。動詞は原形のまま。"},
+  {lv:2, jp:"友達が料理できるかどうか知りたい。たずねてみよう。", hint:"canを文の頭に置くんだったね。", ans:["Can you cook?"], ex:"canの疑問文はCanを文の頭に置く。"},
+  {lv:3, jp:"兄は足が速くない。「兄は速く走れないよ」と伝えよう。", hint:"主語がHeでも動詞は原形のままだよ。", ans:["He cannot run fast.","He can't run fast."], ex:"He can'tのあとの動詞はrunのまま原形。"},
+  {lv:3, jp:"クラスの中で英語を話せる人がいるか知りたい。友達にたずねてみよう。", hint:"canを文の頭に、動詞は原形。", ans:["Can they speak English?"], ex:"Canを文の頭に置き、speakは原形のまま。"}
+];
+
+const ch6 = [
+  {lv:1, jp:"日記の文「I play soccer.」を、きのうのできごととして書き直そう。", hint:"一般動詞の過去形のつくり方を思い出そう。", ans:["I played soccer yesterday."], ex:"一般動詞の過去形はふつう-edをつける。play→played。"},
+  {lv:1, jp:"日記の文「She is busy.」を、きのうのできごととして書き直そう。", hint:"be動詞の過去形は何だったかな?", ans:["She was busy yesterday."], ex:"isの過去形はwas。"},
+  {lv:2, jp:"「I watch TV every night.」について、「昨夜は見なかった」という文に書き直そう。", hint:"過去の否定文の作り方は?動詞の形にも注意。", ans:["I did not watch TV last night.","I didn't watch TV last night."], ex:"過去の否定文はdid not(didn't)+動詞の原形。watchedにしない。"},
+  {lv:2, jp:"「You are at home.」について、「きのう家にいましたか」とたずねる文に書き直そう。", hint:"be動詞areの過去形と疑問文の作り方は?", ans:["Were you at home yesterday?"], ex:"areの過去形はwere。Wereを主語の前に出す。"},
+  {lv:3, jp:"「He goes to the park.」について、「先週の日曜日に行った」という文に書き直そう。(不規則動詞に注意)", hint:"goの過去形は特別な形だったね。", ans:["He went to the park last Sunday."], ex:"goの過去形はwent(不規則動詞)。"},
+  {lv:3, jp:"「You go to school.」について、「きのう学校へ行きましたか」とたずねる文に書き直そう。", hint:"過去の疑問文の作り方と動詞の形に注意。", ans:["Did you go to school yesterday?"], ex:"過去の疑問文はDid+主語+動詞の原形。goのまま(wentにしない)。"}
+];
+
+const ch7 = [
+  {jp:"「わたしは学生です。」を英語で書こう。", hint:"ここはヒントなし。自分の力で考えてみよう!", ans:["I am a student."], ex:"「~です」なのでbe動詞を使う。"},
+  {jp:"「わたしはサッカーをしません。」を英語で書こう。", hint:"ここはヒントなし。自分の力で考えてみよう!", ans:["I do not play soccer.","I don't play soccer."], ex:"一般動詞playの否定文。"},
+  {jp:"「あなたは幸せ?」とたずねる文を英語で書こう。", hint:"ここはヒントなし。自分の力で考えてみよう!", ans:["Are you happy?"], ex:"be動詞areの疑問文。"},
+  {jp:"「彼は犬が好きじゃない。」を英語で書こう。", hint:"ここはヒントなし。自分の力で考えてみよう!", ans:["He does not like dogs.","He doesn't like dogs."], ex:"3人称単数の一般動詞の否定文。"},
+  {jp:"「あなたは泳げる?」とたずねる文を英語で書こう。", hint:"ここはヒントなし。自分の力で考えてみよう!", ans:["Can you swim?"], ex:"canの疑問文。"},
+  {jp:"「彼女はきのう忙しかった。」を英語で書こう。", hint:"ここはヒントなし。自分の力で考えてみよう!", ans:["She was busy yesterday."], ex:"be動詞の過去形was。"},
+  {jp:"「わたしたちは公園へ行った。」を英語で書こう。", hint:"ここはヒントなし。自分の力で考えてみよう!", ans:["We went to the park."], ex:"goの過去形went(不規則動詞)。"},
+  {jp:"「あなたはきのうテレビを見た?」とたずねる文を英語で書こう。", hint:"ここはヒントなし。自分の力で考えてみよう!", ans:["Did you watch TV yesterday?"], ex:"過去の疑問文Did+主語+動詞の原形。"}
+];
+
+const ch8 = [
+  {lv:1, jp:"次の文にはまちがいがあります。正しく直そう。\n「She are happy.」", hint:"主語sheに合うbe動詞は何かな?", ans:["She is happy."], ex:"sheにはisを使う。areはまちがい。"},
+  {lv:1, jp:"「He don't like soccer.」", hint:"主語heのときのdo/doesはどっちだったかな?", ans:["He does not like soccer.","He doesn't like soccer."], ex:"3人称単数のHeにはdoesn'tを使う。don'tはまちがい。"},
+  {lv:2, jp:"「I can plays tennis.」", hint:"canのあとの動詞の形はどうなるんだったかな?", ans:["I can play tennis."], ex:"canのあとの動詞はいつも原形。playsではなくplay。"},
+  {lv:2, jp:"「Does she plays the piano?」", hint:"Doesを使うとき、動詞の形は?", ans:["Does she play the piano?"], ex:"Doesを使ったら動詞は原形に戻す。playsではなくplay。"},
+  {lv:3, jp:"「They was busy yesterday.」", hint:"主語theyに合うbe動詞の過去形は?", ans:["They were busy yesterday."], ex:"theyの過去のbe動詞はwere。wasはまちがい。"},
+  {lv:3, jp:"「I doesn't have a bike.」", hint:"主語Iのときのdo/doesはどっちだったかな?", ans:["I do not have a bike.","I don't have a bike."], ex:"主語Iにはdoesn'tではなくdon'tを使う。"}
+];
+
+/* ---------- helpers ---------- */
+
+function normalize(s){
+  return s
+    .toLowerCase()
+    .replace(/[’`]/g,"'")
+    .replace(/[.?!]+$/,"")
+    .replace(/\s+/g," ")
+    .trim();
+}
+
+let totalQ = 0;
+let correctSet = new Set();
+
+function updateScore(){
+  document.getElementById('scoreFill').textContent = correctSet.size + " / " + totalQ;
+}
+
+/* free-text question card renderer (used by every chapter now) */
+function renderTextChapter(containerId, data, prefix, tag){
+  const container = document.getElementById(containerId);
+  data.forEach((q,i)=>{
+    totalQ++;
+    const qid = prefix+"-"+i;
+    const card = document.createElement('div');
+    card.className='qcard';
+
+    const levelBadge = q.lv ? `<span class="level lv${q.lv}">Lv.${q.lv}</span>` : "";
+    const tagChip = tag ? `<span class="tag tag-${tag.cls}">${tag.label}</span>` : "";
+
+    card.innerHTML = `
+      <div class="qtop">
+        <span class="qnum">Q${i+1}</span>
+        <span style="display:flex;gap:6px;align-items:center;">${tagChip}${levelBadge}</span>
+      </div>
+      <p class="qprompt jp">${q.jp}</p>
+      <div class="qrow">
+        <input type="text" class="eng" placeholder="ここに英語を書いてね" id="input-${qid}">
+        <button class="btn check" data-qid="${qid}">こたえあわせ</button>
+        <button class="btn hint" data-qid="${qid}">ヒント</button>
+      </div>
+      <div class="hintbox" id="hint-${qid}">💡 ${q.hint}</div>
+      <div class="feedback" id="fb-${qid}"></div>
+    `;
+    container.appendChild(card);
+
+    card.querySelector('.btn.hint').addEventListener('click', ()=>{
+      document.getElementById('hint-'+qid).classList.toggle('show');
+    });
+
+    card.querySelector('.btn.check').addEventListener('click', ()=>{
+      const val = document.getElementById('input-'+qid).value;
+      const fb = document.getElementById('fb-'+qid);
+      const okList = q.ans.map(normalize);
+      const isCorrect = okList.includes(normalize(val));
+      if(isCorrect){
+        fb.className='feedback show correct';
+        fb.innerHTML = "⭕ 正解! よくできました。<br>📘 解説: " + q.ex;
+        correctSet.add(qid);
+      } else {
+        fb.className='feedback show wrong';
+        fb.innerHTML = "❌ おしい!正しい答え: <span class='answer'>" + q.ans[0] + "</span><br>📘 解説: " + q.ex;
+        correctSet.delete(qid);
+      }
+      updateScore();
+    });
+  });
+}
+
+renderTextChapter('ch0-list', ch0, 'ch0', {label:"🔍 発見", cls:"mix"});
+renderTextChapter('ch1-list', ch1, 'ch1', {label:"🗨️ 会話", cls:"be"});
+renderTextChapter('ch2-list', ch2, 'ch2', {label:"🔄 逆算", cls:"be"});
+renderTextChapter('ch3-list', ch3, 'ch3', {label:"🗨️ 会話", cls:"gen"});
+renderTextChapter('ch4-list', ch4, 'ch4', {label:"🔄 逆算", cls:"gen"});
+renderTextChapter('ch5-list', ch5, 'ch5', {label:"🎯 場面判断", cls:"can"});
+renderTextChapter('ch6-list', ch6, 'ch6', {label:"🌀 混ぜこぜ", cls:"past"});
+renderTextChapter('ch7-list', ch7, 'ch7', {label:"✍️ ノーヒント", cls:"mix"});
+renderTextChapter('ch8-list', ch8, 'ch8', {label:"🕵️ まちがい探し", cls:"err"});
+updateScore();
+</script>
+</body>
+</html>
